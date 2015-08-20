@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>R 資料分析上手課程 { Lightning Talk }</title>
+  <title>R 資料分析上手課程 { 閃電秀 }</title>
   <meta charset="utf-8">
-  <meta name="description" content="R 資料分析上手課程 { Lightning Talk }">
+  <meta name="description" content="R 資料分析上手課程 { 閃電秀 }">
   <meta name="author" content="Summit Suen">
   <meta name="generator" content="slidify" />
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -13,7 +13,8 @@
     media="only screen and (max-device-width: 480px)" >
   <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
   <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
-  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/lightning.css"></link>
+<link rel=stylesheet href="./assets/css/ribbons.css"></link>
 
   
   <!-- Grab CDN jQuery, fall back to local if offline -->
@@ -31,31 +32,39 @@
     
     <!-- LOGO SLIDE -->
         <slide class="title-slide segue nobackground">
+  <aside class="gdbar">
+    <img src="assets/img/Taiwan-R-logo.png">
+  </aside>
   <hgroup class="auto-fadein">
-    <h1>R 資料分析上手課程 { Lightning Talk }</h1>
-    <h2>2015 DSC 台灣資料科學愛好者年會</h2>
+    <h1>R 資料分析上手課程 { 閃電秀 }</h1>
+    <h2>Lightning Talk | R &lt;3 Baseball</h2>
     <p>Summit Suen<br/>Taiwan R User Group</p>
   </hgroup>
+    <a href="https://github.com/suensummit/lightning-DSC2015-R/zipball/gh-pages" class="example">
+     Download
+    </a>
   <article></article>  
+  <footer class = 'license'>
+    <a href='http://creativecommons.org/licenses/by-nc-sa/3.0/'>
+    <img width = '80px' src = 'http://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png'>
+    </a>
+  </footer>
 </slide>
     
 
     <!-- SLIDES -->
     <slide class="" id="slide-1" style="background:;">
   <hgroup>
-    <h2>Lightning Talk</h2>
+    <h2>R 就是要拿來跑統計啊，不然要幹嘛？</h2>
   </hgroup>
   <article data-timings="">
-    <p><img src="https://t.kfs.io/upload_images/41788/DSC15_LOGO-___large.jpg" alt=""></p>
+    <p><img src="http://helmetstudio.tk/agar/i/%E6%B3%9B%E8%88%9F%E5%93%A5.png" alt=""></p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="class" id="id" style="background:;">
-  <hgroup>
-    <h2>R &lt;3 Baseball</h2>
-  </hgroup>
+<slide class="title-slide2" id="id" style="background:;">
   <article data-timings="">
     
   </article>
@@ -67,10 +76,23 @@
     <h2>工欲善其事，必先利其器</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code class="r">install.packages(&quot;Lahman&quot;)
-install.packages(&quot;Sxslt&quot;, repos = &quot;http://www.omegahat.org/R&quot;, type = &quot;source&quot;)
-require(devtools)
-install_github(&quot;openWAR&quot;, &quot;beanumber&quot;)
+    <pre><code class="r"># install.packages(&quot;Lahman&quot;)
+library(Lahman)
+library(dplyr)
+totalRS &lt;- Teams %&gt;% select(yearID, R, G) %&gt;% mutate(AvgRperG = R/G) %&gt;% group_by(yearID) %&gt;% summarise(sum(AvgRperG))
+names(totalRS) &lt;- c(&quot;yearID&quot;, &quot;RUN&quot;)
+head(totalRS)
+</code></pre>
+
+<pre><code>## Source: local data frame [6 x 2]
+## 
+##   yearID      RUN
+## 1   1871 93.12897
+## 2   1872 95.21474
+## 3   1873 73.15998
+## 4   1874 58.55903
+## 5   1875 70.08774
+## 6   1876 47.01267
 </code></pre>
 
   </article>
@@ -78,13 +100,273 @@ install_github(&quot;openWAR&quot;, &quot;beanumber&quot;)
 </slide>
 
 <slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>工欲善其事，必先利其器</h2>
+  </hgroup>
   <article data-timings="">
-    <pre><code class="r">install.packages(&quot;httr&quot;)
-install.packages(&quot;XML&quot;)
-install.packages(&quot;stringr&quot;)
-install.packages(&quot;CSS&quot;)
-install.packages(&quot;rjson&quot;)
+    <pre><code class="r">library(ggplot2)
+ggplot(data = totalRS, aes(x = yearID, y = RUN)) + stat_smooth() + geom_line()
 </code></pre>
+
+<pre><code>## geom_smooth: method=&quot;auto&quot; and size of largest group is &lt;1000, so using loess. Use &#39;method = x&#39; to change the smoothing method.
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>工欲善其事，必先利其器</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">library(Lahman)
+library(dplyr)
+head(filter(Batting, playerID == &quot;jeterde01&quot;))
+</code></pre>
+
+<pre><code>##    playerID yearID stint teamID lgID   G G_batting  AB   R   H X2B X3B HR
+## 1 jeterde01   1995     1    NYA   AL  15        15  48   5  12   4   1  0
+## 2 jeterde01   1996     1    NYA   AL 157       157 582 104 183  25   6 10
+## 3 jeterde01   1997     1    NYA   AL 159       159 654 116 190  31   7 10
+## 4 jeterde01   1998     1    NYA   AL 149       149 626 127 203  25   8 19
+## 5 jeterde01   1999     1    NYA   AL 158       158 627 134 219  37   9 24
+## 6 jeterde01   2000     1    NYA   AL 148       148 593 119 201  31   4 15
+##   RBI SB CS BB  SO IBB HBP SH SF GIDP G_old
+## 1   7  0  0  3  11   0   0  0  0    0    15
+## 2  78 14  7 48 102   1   9  6  9   13   157
+## 3  70 23 12 74 125   0  10  8  2   14   159
+## 4  84 30  6 57 119   1   5  3  3   13   149
+## 5 102 19  8 91 116   5  12  3  6   12   158
+## 6  73 22  4 68  99   4  12  3  3   14   148
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>工欲善其事，必先利其器</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r"># install.packages(&quot;Sxslt&quot;, repos = &quot;http://www.omegahat.org/R&quot;, type = &quot;source&quot;)
+# require(devtools)
+# install_github(&quot;openWAR&quot;, &quot;beanumber&quot;)
+require(openWAR)
+getGameIds(date=as.Date(&quot;2015-08-19&quot;))
+</code></pre>
+
+<pre><code>## 
+## Retrieving data from 2015-08-19 ...
+## ...found 15 games
+</code></pre>
+
+<pre><code>##  [1] &quot;gid_2015_08_19_arimlb_pitmlb_1&quot; &quot;gid_2015_08_19_atlmlb_sdnmlb_1&quot;
+##  [3] &quot;gid_2015_08_19_chamlb_anamlb_1&quot; &quot;gid_2015_08_19_clemlb_bosmlb_1&quot;
+##  [5] &quot;gid_2015_08_19_detmlb_chnmlb_1&quot; &quot;gid_2015_08_19_kcamlb_cinmlb_1&quot;
+##  [7] &quot;gid_2015_08_19_lanmlb_oakmlb_1&quot; &quot;gid_2015_08_19_miamlb_milmlb_1&quot;
+##  [9] &quot;gid_2015_08_19_minmlb_nyamlb_1&quot; &quot;gid_2015_08_19_nynmlb_balmlb_1&quot;
+## [11] &quot;gid_2015_08_19_seamlb_texmlb_1&quot; &quot;gid_2015_08_19_sfnmlb_slnmlb_1&quot;
+## [13] &quot;gid_2015_08_19_tbamlb_houmlb_1&quot; &quot;gid_2015_08_19_tormlb_phimlb_1&quot;
+## [15] &quot;gid_2015_08_19_wasmlb_colmlb_1&quot;
+</code></pre>
+
+<pre><code class="r">gd = gameday(gameId=&quot;gid_2015_08_19_wasmlb_colmlb_1&quot;)
+</code></pre>
+
+<pre><code>## gid_2015_08_19_wasmlb_colmlb_1
+</code></pre>
+
+<pre><code class="r">gd$url
+</code></pre>
+
+<pre><code>##                                                                                                        bis_boxscore.xml 
+##      &quot;http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_19/gid_2015_08_19_wasmlb_colmlb_1/bis_boxscore.xml&quot; 
+##                                                                                                          inning_all.xml 
+## &quot;http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_19/gid_2015_08_19_wasmlb_colmlb_1/inning/inning_all.xml&quot; 
+##                                                                                                          inning_hit.xml 
+## &quot;http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_19/gid_2015_08_19_wasmlb_colmlb_1/inning/inning_hit.xml&quot; 
+##                                                                                                                game.xml 
+##              &quot;http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_19/gid_2015_08_19_wasmlb_colmlb_1/game.xml&quot; 
+##                                                                                                         game_events.xml 
+##       &quot;http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_19/gid_2015_08_19_wasmlb_colmlb_1/game_events.xml&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>工欲善其事，必先利其器</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">str(gd$ds)
+</code></pre>
+
+<pre><code>## Classes &#39;GameDayPlays&#39;, &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    73 obs. of  62 variables:
+##  $ pitcherId     : num  544931 544931 544931 407822 407822 ...
+##  $ batterId      : num  453568 408314 471865 150029 457787 ...
+##  $ field_teamId  : chr  &quot;120&quot; &quot;120&quot; &quot;120&quot; &quot;115&quot; ...
+##  $ ab_num        : num  6 7 8 1 2 3 4 5 13 14 ...
+##  $ inning        : num  1 1 1 1 1 1 1 1 2 2 ...
+##  $ half          : Factor w/ 2 levels &quot;bottom&quot;,&quot;top&quot;: 1 1 1 2 2 2 2 2 1 1 ...
+##  $ balls         : num  3 0 3 1 3 2 1 1 3 0 ...
+##  $ strikes       : num  2 2 3 3 3 1 1 2 2 1 ...
+##  $ endOuts       : num  0 2 3 1 2 2 2 3 1 1 ...
+##  $ event         : Factor w/ 21 levels &quot;Caught Stealing 2B&quot;,..: 16 14 18 18 18 16 16 6 14 4 ...
+##  $ actionId      : num  NA NA NA NA NA NA NA NA NA NA ...
+##  $ description   : Factor w/ 81 levels &quot;Ben Paulsen flies out to left fielder Jayson Werth.  &quot;,..: 18 42 14 35 21 10 79 30 53 3 ...
+##  $ stand         : Factor w/ 2 levels &quot;L&quot;,&quot;R&quot;: 1 1 1 2 2 1 2 2 2 1 ...
+##  $ throws        : Factor w/ 2 levels &quot;L&quot;,&quot;R&quot;: 2 2 2 1 1 1 1 1 2 2 ...
+##  $ runnerMovement: chr  &quot;[453568::1B::Single]&quot; &quot;[453568:1B:::Caught Stealing 2B]&quot; &quot;&quot; &quot;&quot; ...
+##  $ x             : num  173 112 NA NA NA ...
+##  $ y             : num  102 153 NA NA NA ...
+##  $ game_type     : Factor w/ 1 level &quot;R&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ home_team     : Factor w/ 1 level &quot;col&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ home_teamId   : num  115 115 115 115 115 115 115 115 115 115 ...
+##  $ home_lg       : Factor w/ 1 level &quot;NL&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ away_team     : Factor w/ 1 level &quot;was&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ away_teamId   : num  120 120 120 120 120 120 120 120 120 120 ...
+##  $ away_lg       : Factor w/ 1 level &quot;NL&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ venueId       : num  19 19 19 19 19 19 19 19 19 19 ...
+##  $ stadium       : Factor w/ 1 level &quot;Coors Field&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ timestamp     : chr  &quot;2015-08-20 00:55:03&quot; &quot;2015-08-20 00:58:48&quot; &quot;2015-08-20 01:01:32&quot; &quot;2015-08-20 00:42:10&quot; ...
+##  $ playerId.C    : num  467092 467092 467092 460026 460026 ...
+##  $ playerId.1B   : num  475582 475582 475582 572019 572019 ...
+##  $ playerId.2B   : num  457787 457787 457787 518934 518934 ...
+##  $ playerId.3B   : num  488862 488862 488862 571448 571448 ...
+##  $ playerId.SS   : num  435622 435622 435622 408314 408314 ...
+##  $ playerId.LF   : num  150029 150029 150029 592621 592621 ...
+##  $ playerId.CF   : num  572191 572191 572191 453568 453568 ...
+##  $ playerId.RF   : num  547180 547180 547180 471865 471865 ...
+##  $ batterPos     : chr  &quot;CF&quot; &quot;SS&quot; &quot;RF&quot; &quot;LF&quot; ...
+##  $ batterName    : Factor w/ 26 levels &quot;Arenado&quot;,&quot;Axford&quot;,..: 5 21 11 25 9 12 8 7 1 19 ...
+##  $ pitcherName   : Factor w/ 26 levels &quot;Arenado&quot;,&quot;Axford&quot;,..: 23 23 23 6 6 6 6 6 23 23 ...
+##  $ runsOnPlay    : int  0 0 0 0 0 0 0 0 0 0 ...
+##  $ startOuts     : num  0 0 2 0 1 2 2 2 0 1 ...
+##  $ runsInInning  : int  0 0 0 0 0 0 0 0 1 1 ...
+##  $ runsITD       : num  0 0 0 0 0 0 0 0 0 0 ...
+##  $ runsFuture    : num  0 0 0 0 0 0 0 0 1 1 ...
+##  $ start1B       : chr  NA &quot;453568&quot; NA NA ...
+##  $ start2B       : chr  NA NA NA NA ...
+##  $ start3B       : chr  NA NA NA NA ...
+##  $ end1B         : chr  &quot;453568&quot; NA NA NA ...
+##  $ end2B         : chr  NA NA NA NA ...
+##  $ end3B         : chr  NA NA NA NA ...
+##  $ outsInInning  : num  3 3 3 3 3 3 3 3 3 3 ...
+##  $ startCode     : num  0 1 0 0 0 0 1 3 0 0 ...
+##  $ endCode       : num  1 0 0 0 0 1 3 0 0 2 ...
+##  $ fielderId     : num  NA 435622 NA NA NA ...
+##  $ gameId        : chr  &quot;gid_2015_08_19_wasmlb_colmlb_1&quot; &quot;gid_2015_08_19_wasmlb_colmlb_1&quot; &quot;gid_2015_08_19_wasmlb_colmlb_1&quot; &quot;gid_2015_08_19_wasmlb_colmlb_1&quot; ...
+##  $ isPA          : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+##  $ isAB          : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+##  $ isHit         : logi  TRUE FALSE FALSE FALSE FALSE TRUE ...
+##  $ isBIP         : logi  TRUE TRUE FALSE FALSE FALSE TRUE ...
+##  $ our.x         : num  118.8 -33.2 NA NA NA ...
+##  $ our.y         : num  243 115 NA NA NA ...
+##  $ r             : num  270 119 NA NA NA ...
+##  $ theta         : num  1.12 1.85 NA NA NA ...
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>工欲善其事，必先利其器</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">ggplot(data = gd$ds, aes(x = x, y = y, color = isHit)) + geom_point(size = 3) + coord_fixed()
+</code></pre>
+
+<pre><code>## Warning: Removed 28 rows containing missing values (geom_point).
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-6-1.png" alt="plot of chunk unnamed-chunk-6"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>Recap</h2>
+  </hgroup>
+  <article data-timings="">
+    <h3>拿資料</h3>
+
+<ul>
+<li><p>靜態資料庫</p>
+
+<ul>
+<li><a href="http://lahman.r-forge.r-project.org/">Lahman Database</a></li>
+</ul></li>
+<li><p>即時資料源</p>
+
+<ul>
+<li><a href="http://cpsievert.github.io/pitchRx/#2D_animation">pitchRx</a></li>
+<li><a href="https://baseballwithr.wordpress.com/2014/03/17/introduction-to-openwar/">openWAR</a></li>
+</ul></li>
+<li><p>隨時爬網頁</p>
+
+<ul>
+<li><a href="http://ropensci.github.io/RSelenium/">RSelenium</a></li>
+<li><a href="http://phantomjs.org/">phantomJS</a></li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>Recap</h2>
+  </hgroup>
+  <article data-timings="">
+    <h3>玩資料</h3>
+
+<ul>
+<li><p>賽博計量學</p>
+
+<ul>
+<li><a href="http://cpsievert.github.io/pitchRx/#2D_animation">pitchRx</a></li>
+<li><a href="https://baseballwithr.wordpress.com/2014/03/17/introduction-to-openwar/">openWAR</a></li>
+</ul></li>
+<li><p>資料視覺化</p>
+
+<ul>
+<li><a href="http://ggplot2.org/">ggplot2</a></li>
+<li><a href="http://yihui.name/recharts/">recharts</a></li>
+<li><a href="http://rstudio.github.io/dygraphs/">dygraphs</a></li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h2>意猶未盡嗎？更多精彩的內容等著大家⋯⋯</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="https://t.kfs.io/upload_images/41788/DSC15_LOGO-___large.jpg" alt="">
+<img src="assets/img/Taiwan-R-logo.png" alt=""></p>
+
+<p><img src="http://datasci.tw/images/course/s001.png" alt="">
+<img src="http://datasci.tw/images/course/s002.png" alt="">
+<img src="http://datasci.tw/images/course/s003.png" alt="">
+<img src="http://datasci.tw/images/course/s004.png" alt="">
+<img src="http://datasci.tw/images/course/s005.png" alt="">
+<img src="http://datasci.tw/images/course/s006.png" alt="">
+<img src="http://datasci.tw/images/course/s007.png" alt="">
+<img src="http://datasci.tw/images/course/s008.png" alt=""></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -96,13 +378,13 @@ install.packages(&quot;rjson&quot;)
     <ul>
       <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='Lightning Talk'>
+        data-slide=1 title='R 就是要拿來跑統計啊，不然要幹嘛？'>
          1
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='R &lt;3 Baseball'>
+        data-slide=2 title='NA'>
          2
       </a>
     </li>
@@ -114,8 +396,50 @@ install.packages(&quot;rjson&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title='NA'>
+        data-slide=4 title='工欲善其事，必先利其器'>
          4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='工欲善其事，必先利其器'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='工欲善其事，必先利其器'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='工欲善其事，必先利其器'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='工欲善其事，必先利其器'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='Recap'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='Recap'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='意猶未盡嗎？更多精彩的內容等著大家⋯⋯'>
+         11
       </a>
     </li>
   </ul>
