@@ -243,11 +243,11 @@ str(gd$ds)
 
 
 ```r
-ggplot(data = gd$ds, aes(x = x, y = y, color = isHit)) + geom_point(size = 3) + coord_fixed()
+ggplot(data = gd$ds, aes(x = x, y = y, color = isHit)) + geom_point(size = 4) + coord_fixed()
 ```
 
 ```
-## Warning: Removed 22 rows containing missing values (geom_point).
+## Warning: Removed 10 rows containing missing values (geom_point).
 ```
 
 ![plot of chunk unnamed-chunk-7](assets/fig/unnamed-chunk-7-1.png) 
