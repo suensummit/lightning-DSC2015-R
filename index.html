@@ -158,43 +158,41 @@ head(filter(Pitching, playerID == &quot;wangch01&quot;))
 # require(devtools)
 # install_github(&quot;openWAR&quot;, &quot;beanumber&quot;)
 require(openWAR)
-getGameIds(date=as.Date(&quot;2015-08-19&quot;))
+getGameIds(date=as.Date(&quot;2015-08-20&quot;))
 </code></pre>
 
 <pre><code>## 
-## Retrieving data from 2015-08-19 ...
-## ...found 15 games
+## Retrieving data from 2015-08-20 ...
+## ...found 11 games
 </code></pre>
 
-<pre><code>##  [1] &quot;gid_2015_08_19_arimlb_pitmlb_1&quot; &quot;gid_2015_08_19_atlmlb_sdnmlb_1&quot;
-##  [3] &quot;gid_2015_08_19_chamlb_anamlb_1&quot; &quot;gid_2015_08_19_clemlb_bosmlb_1&quot;
-##  [5] &quot;gid_2015_08_19_detmlb_chnmlb_1&quot; &quot;gid_2015_08_19_kcamlb_cinmlb_1&quot;
-##  [7] &quot;gid_2015_08_19_lanmlb_oakmlb_1&quot; &quot;gid_2015_08_19_miamlb_milmlb_1&quot;
-##  [9] &quot;gid_2015_08_19_minmlb_nyamlb_1&quot; &quot;gid_2015_08_19_nynmlb_balmlb_1&quot;
-## [11] &quot;gid_2015_08_19_seamlb_texmlb_1&quot; &quot;gid_2015_08_19_sfnmlb_slnmlb_1&quot;
-## [13] &quot;gid_2015_08_19_tbamlb_houmlb_1&quot; &quot;gid_2015_08_19_tormlb_phimlb_1&quot;
-## [15] &quot;gid_2015_08_19_wasmlb_colmlb_1&quot;
+<pre><code>##  [1] &quot;gid_2015_08_20_arimlb_cinmlb_1&quot; &quot;gid_2015_08_20_atlmlb_chnmlb_1&quot;
+##  [3] &quot;gid_2015_08_20_chamlb_anamlb_1&quot; &quot;gid_2015_08_20_clemlb_nyamlb_1&quot;
+##  [5] &quot;gid_2015_08_20_kcamlb_bosmlb_1&quot; &quot;gid_2015_08_20_minmlb_balmlb_1&quot;
+##  [7] &quot;gid_2015_08_20_phimlb_miamlb_1&quot; &quot;gid_2015_08_20_sfnmlb_pitmlb_1&quot;
+##  [9] &quot;gid_2015_08_20_tbamlb_houmlb_1&quot; &quot;gid_2015_08_20_texmlb_detmlb_1&quot;
+## [11] &quot;gid_2015_08_20_wasmlb_colmlb_1&quot;
 </code></pre>
 
-<pre><code class="r">gd = gameday(gameId=&quot;gid_2015_08_19_wasmlb_colmlb_1&quot;)
+<pre><code class="r">gd = gameday(gameId=&quot;gid_2015_08_20_wasmlb_colmlb_1&quot;)
 </code></pre>
 
-<pre><code>## gid_2015_08_19_wasmlb_colmlb_1
+<pre><code>## gid_2015_08_20_wasmlb_colmlb_1
 </code></pre>
 
 <pre><code class="r">gd$url
 </code></pre>
 
 <pre><code>##                                                                                                        bis_boxscore.xml 
-##      &quot;http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_19/gid_2015_08_19_wasmlb_colmlb_1/bis_boxscore.xml&quot; 
+##      &quot;http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_20/gid_2015_08_20_wasmlb_colmlb_1/bis_boxscore.xml&quot; 
 ##                                                                                                          inning_all.xml 
-## &quot;http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_19/gid_2015_08_19_wasmlb_colmlb_1/inning/inning_all.xml&quot; 
+## &quot;http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_20/gid_2015_08_20_wasmlb_colmlb_1/inning/inning_all.xml&quot; 
 ##                                                                                                          inning_hit.xml 
-## &quot;http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_19/gid_2015_08_19_wasmlb_colmlb_1/inning/inning_hit.xml&quot; 
+## &quot;http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_20/gid_2015_08_20_wasmlb_colmlb_1/inning/inning_hit.xml&quot; 
 ##                                                                                                                game.xml 
-##              &quot;http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_19/gid_2015_08_19_wasmlb_colmlb_1/game.xml&quot; 
+##              &quot;http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_20/gid_2015_08_20_wasmlb_colmlb_1/game.xml&quot; 
 ##                                                                                                         game_events.xml 
-##       &quot;http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_19/gid_2015_08_19_wasmlb_colmlb_1/game_events.xml&quot;
+##       &quot;http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_20/gid_2015_08_20_wasmlb_colmlb_1/game_events.xml&quot;
 </code></pre>
 
   </article>

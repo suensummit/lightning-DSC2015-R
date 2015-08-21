@@ -105,32 +105,30 @@ head(filter(Pitching, playerID == "wangch01"))
 # require(devtools)
 # install_github("openWAR", "beanumber")
 require(openWAR)
-getGameIds(date=as.Date("2015-08-19"))
+getGameIds(date=as.Date("2015-08-20"))
 ```
 
 ```
 ## 
-## Retrieving data from 2015-08-19 ...
-## ...found 15 games
+## Retrieving data from 2015-08-20 ...
+## ...found 11 games
 ```
 
 ```
-##  [1] "gid_2015_08_19_arimlb_pitmlb_1" "gid_2015_08_19_atlmlb_sdnmlb_1"
-##  [3] "gid_2015_08_19_chamlb_anamlb_1" "gid_2015_08_19_clemlb_bosmlb_1"
-##  [5] "gid_2015_08_19_detmlb_chnmlb_1" "gid_2015_08_19_kcamlb_cinmlb_1"
-##  [7] "gid_2015_08_19_lanmlb_oakmlb_1" "gid_2015_08_19_miamlb_milmlb_1"
-##  [9] "gid_2015_08_19_minmlb_nyamlb_1" "gid_2015_08_19_nynmlb_balmlb_1"
-## [11] "gid_2015_08_19_seamlb_texmlb_1" "gid_2015_08_19_sfnmlb_slnmlb_1"
-## [13] "gid_2015_08_19_tbamlb_houmlb_1" "gid_2015_08_19_tormlb_phimlb_1"
-## [15] "gid_2015_08_19_wasmlb_colmlb_1"
+##  [1] "gid_2015_08_20_arimlb_cinmlb_1" "gid_2015_08_20_atlmlb_chnmlb_1"
+##  [3] "gid_2015_08_20_chamlb_anamlb_1" "gid_2015_08_20_clemlb_nyamlb_1"
+##  [5] "gid_2015_08_20_kcamlb_bosmlb_1" "gid_2015_08_20_minmlb_balmlb_1"
+##  [7] "gid_2015_08_20_phimlb_miamlb_1" "gid_2015_08_20_sfnmlb_pitmlb_1"
+##  [9] "gid_2015_08_20_tbamlb_houmlb_1" "gid_2015_08_20_texmlb_detmlb_1"
+## [11] "gid_2015_08_20_wasmlb_colmlb_1"
 ```
 
 ```r
-gd = gameday(gameId="gid_2015_08_19_wasmlb_colmlb_1")
+gd = gameday(gameId="gid_2015_08_20_wasmlb_colmlb_1")
 ```
 
 ```
-## gid_2015_08_19_wasmlb_colmlb_1
+## gid_2015_08_20_wasmlb_colmlb_1
 ```
 
 ```r
@@ -139,15 +137,15 @@ gd$url
 
 ```
 ##                                                                                                        bis_boxscore.xml 
-##      "http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_19/gid_2015_08_19_wasmlb_colmlb_1/bis_boxscore.xml" 
+##      "http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_20/gid_2015_08_20_wasmlb_colmlb_1/bis_boxscore.xml" 
 ##                                                                                                          inning_all.xml 
-## "http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_19/gid_2015_08_19_wasmlb_colmlb_1/inning/inning_all.xml" 
+## "http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_20/gid_2015_08_20_wasmlb_colmlb_1/inning/inning_all.xml" 
 ##                                                                                                          inning_hit.xml 
-## "http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_19/gid_2015_08_19_wasmlb_colmlb_1/inning/inning_hit.xml" 
+## "http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_20/gid_2015_08_20_wasmlb_colmlb_1/inning/inning_hit.xml" 
 ##                                                                                                                game.xml 
-##              "http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_19/gid_2015_08_19_wasmlb_colmlb_1/game.xml" 
+##              "http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_20/gid_2015_08_20_wasmlb_colmlb_1/game.xml" 
 ##                                                                                                         game_events.xml 
-##       "http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_19/gid_2015_08_19_wasmlb_colmlb_1/game_events.xml"
+##       "http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_20/gid_2015_08_20_wasmlb_colmlb_1/game_events.xml"
 ```
 
 ---
