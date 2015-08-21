@@ -115,12 +115,12 @@ ggplot(data = gd$ds, aes(x = x, y = y, color = isHit)) + geom_point(size = 4) + 
   - [Lahman Database](http://lahman.r-forge.r-project.org/)
 
 - 即時資料源
-  - [pitchRx](http://cpsievert.github.io/pitchRx/#2D_animation)
   - [openWAR](https://baseballwithr.wordpress.com/2014/03/17/introduction-to-openwar/)
 
 - 隨時爬網頁
   - [httr](https://cran.r-project.org/web/packages/httr/index.html)
   - [XML](https://cran.r-project.org/web/packages/XML/index.html)
+  - [RJSONIO](http://www.omegahat.org/RJSONIO/)
   - [RSelenium](http://ropensci.github.io/RSelenium/)
   - [phantomJS](http://phantomjs.org/)
 
