@@ -168,6 +168,52 @@ gd$ds$inning
 ```
 
 ```r
+gd$ds$description
+```
+
+```
+##  [1] Shane Victorino singles on a sharp line drive to left fielder Melky Cabrera.                                                                                         
+##  [2] Kole Calhoun lines out sharply to left fielder Melky Cabrera.                                                                                                        
+##  [3] Mike Trout doubles (23) on a sharp line drive to center fielder Adam Eaton.   Shane Victorino scores.                                                                
+##  [4] Albert Pujols grounds out, shortstop Alexei Ramirez to first baseman Adam LaRoche.                                                                                   
+##  [5] C.  J.   Cron grounds out, third baseman Tyler Saladino to first baseman Adam LaRoche.                                                                               
+##  [6] Adam Eaton doubles (20) on a line drive to right fielder Kole Calhoun.                                                                                               
+##  [7] Tyler Saladino out on a sacrifice bunt, pitcher Nick Tropeano to first baseman C.  J.   Cron.   Adam Eaton to 3rd.                                                   
+##  [8] Jose Abreu grounds out, shortstop Erick Aybar to first baseman C.   Cron.   Adam Eaton scores.                                                                       
+##  [9] Melky Cabrera lines out sharply to left fielder Shane Victorino.                                                                                                     
+## [10] Erick Aybar lines out softly to right fielder Avisail Garcia.                                                                                                        
+## [11] Johnny Giavotella singles on a line drive to right fielder Avisail Garcia.  Johnny Giavotella out at 2nd, right fielder Avisail Garcia to shortstop Alexei Ramirez.  
+## [12] Chris Iannetta pops out to second baseman Carlos Sanchez.                                                                                                            
+## [13] Avisail Garcia grounds out, third baseman Kaleb Cowart to first baseman C.  J.   Cron.                                                                               
+## [14] Adam LaRoche flies out to center fielder Mike Trout.                                                                                                                 
+## [15] Alexei Ramirez called out on strikes.                                                                                                                                
+## [16] Kaleb Cowart grounds out, second baseman Carlos Sanchez to first baseman Adam LaRoche.                                                                               
+## [17] Shane Victorino pops out to second baseman Carlos Sanchez.                                                                                                           
+## [18] Kole Calhoun singles on a soft line drive to right fielder Avisail Garcia.                                                                                           
+## [19] Mike Trout walks.   Kole Calhoun to 2nd.                                                                                                                             
+## [20] Albert Pujols walks.   Kole Calhoun to 3rd.    Mike Trout to 2nd.                                                                                                    
+## [21] C.  J.   Cron grounds into a force out, third baseman Tyler Saladino to second baseman Carlos Sanchez.   Albert Pujols out at 2nd.                                   
+## [22] Geovany Soto strikes out swinging.                                                                                                                                   
+## [23] Carlos Sanchez grounds out sharply to first baseman C.  J.   Cron.                                                                                                   
+## [24] Adam Eaton strikes out swinging.                                                                                                                                     
+## [25] Erick Aybar grounds out, third baseman Tyler Saladino to first baseman Adam LaRoche.                                                                                 
+## [26] Johnny Giavotella grounds out, shortstop Alexei Ramirez to first baseman Adam LaRoche.                                                                               
+## [27] Chris Iannetta called out on strikes.                                                                                                                                
+## [28] Tyler Saladino singles on a sharp ground ball to left fielder Shane Victorino.                                                                                       
+## [29] Jose Abreu grounds out, shortstop Erick Aybar to first baseman C.   Cron.   Tyler Saladino to 2nd.                                                                   
+## [30] Melky Cabrera walks.                                                                                                                                                 
+## [31] Avisail Garcia grounds into a double play, shortstop Erick Aybar to second baseman Johnny Giavotella to first baseman C.   Cron.   Melky Cabrera out at 2nd.         
+## [32] Adam LaRoche singles on a ground ball to right fielder Kole Calhoun.                                                                                                 
+## [33] Alexei Ramirez singles on a sharp line drive to left fielder Shane Victorino.   Adam LaRoche to 2nd.                                                                 
+## 34 Levels: Adam Eaton doubles (20) on a line drive to right fielder Kole Calhoun.   ...
+```
+
+---
+
+## 工欲善其事，必先利其器
+
+
+```r
 str(gd$ds)
 ```
 
@@ -250,7 +296,7 @@ ggplot(data = gd$ds, aes(x = x, y = y, color = isHit)) + geom_point(size = 4) + 
 ## Warning: Removed 10 rows containing missing values (geom_point).
 ```
 
-![plot of chunk unnamed-chunk-7](assets/fig/unnamed-chunk-7-1.png) 
+![plot of chunk unnamed-chunk-8](assets/fig/unnamed-chunk-8-1.png) 
 
 ---
 

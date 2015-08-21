@@ -85,6 +85,14 @@ gd$url
 ```{r}
 # now playing
 gd$ds$inning
+gd$ds$description
+```
+
+---
+
+## 工欲善其事，必先利其器
+
+```{r}
 str(gd$ds)
 ```
 
