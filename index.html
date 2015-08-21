@@ -213,7 +213,14 @@ getGameIds(date=as.Date(&quot;2015-08-20&quot;))
     <h2>工欲善其事，必先利其器</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code class="r">str(gd$ds)
+    <pre><code class="r">gd$ds$inning
+</code></pre>
+
+<pre><code>##  [1] 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 4 4 4 4 4 4 4 5 5 5 5 5
+## [36] 5 5 5 5 5 6 6 6 6 6 6 6 6 6 7 7 7 7 7 7 7 7 7 7 7 8 8 8 8 8 8
+</code></pre>
+
+<pre><code class="r">str(gd$ds)
 </code></pre>
 
 <pre><code>## Classes &#39;GameDayPlays&#39;, &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    66 obs. of  62 variables:
