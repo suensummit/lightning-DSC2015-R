@@ -19,6 +19,8 @@ knit        : slidify::knit2slides
 
 ![](http://helmetstudio.tk/agar/i/%E6%B3%9B%E8%88%9F%E5%93%A5.png)
 
+## OS: 好像又跑得很慢
+
 --- .title-slide2 #id 
 
 ## 
