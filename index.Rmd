@@ -52,7 +52,7 @@ ggplot(data = totalRS, aes(x = yearID, y = RUN)) + stat_smooth() + geom_line()
 ```{r}
 library(Lahman)
 library(dplyr)
-head(filter(Batting, playerID == "jeterde01"))
+head(filter(Pitching, playerID == "wangch01"))
 ```
 
 ---
