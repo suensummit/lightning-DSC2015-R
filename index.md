@@ -289,7 +289,7 @@ str(gd$ds)
 
 
 ```r
-ggplot(data = gd$ds, aes(x = x, y = y, color = isHit)) + geom_point(size = 4) + coord_fixed()
+ggplot(data = gd$ds, aes(x = our.x, y = our.y, color = isHit)) + geom_point(size = 4) + coord_fixed()
 ```
 
 ```
