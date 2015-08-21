@@ -266,6 +266,8 @@ ggplot(data = gd$ds, aes(x = x, y = y, color = isHit)) + geom_point(size = 3) + 
   - [openWAR](https://baseballwithr.wordpress.com/2014/03/17/introduction-to-openwar/)
 
 - 隨時爬網頁
+  - [httr](https://cran.r-project.org/web/packages/httr/index.html)
+  - [XML](https://cran.r-project.org/web/packages/XML/index.html)
   - [RSelenium](http://ropensci.github.io/RSelenium/)
   - [phantomJS](http://phantomjs.org/)
 
