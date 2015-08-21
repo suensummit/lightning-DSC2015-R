@@ -129,11 +129,11 @@ getGameIds(date=as.Date("2015-08-20"))
 
 
 ```r
-gd = gameday(gameId="gid_2015_08_20_wasmlb_colmlb_1")
+gd = gameday(gameId="gid_2015_08_20_chamlb_anamlb_1")
 ```
 
 ```
-## gid_2015_08_20_wasmlb_colmlb_1
+## gid_2015_08_20_chamlb_anamlb_1
 ```
 
 ```r
@@ -142,15 +142,15 @@ gd$url
 
 ```
 ##                                                                                                        bis_boxscore.xml 
-##      "http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_20/gid_2015_08_20_wasmlb_colmlb_1/bis_boxscore.xml" 
+##      "http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_20/gid_2015_08_20_chamlb_anamlb_1/bis_boxscore.xml" 
 ##                                                                                                          inning_all.xml 
-## "http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_20/gid_2015_08_20_wasmlb_colmlb_1/inning/inning_all.xml" 
+## "http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_20/gid_2015_08_20_chamlb_anamlb_1/inning/inning_all.xml" 
 ##                                                                                                          inning_hit.xml 
-## "http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_20/gid_2015_08_20_wasmlb_colmlb_1/inning/inning_hit.xml" 
+## "http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_20/gid_2015_08_20_chamlb_anamlb_1/inning/inning_hit.xml" 
 ##                                                                                                                game.xml 
-##              "http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_20/gid_2015_08_20_wasmlb_colmlb_1/game.xml" 
+##              "http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_20/gid_2015_08_20_chamlb_anamlb_1/game.xml" 
 ##                                                                                                         game_events.xml 
-##       "http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_20/gid_2015_08_20_wasmlb_colmlb_1/game_events.xml"
+##       "http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_20/gid_2015_08_20_chamlb_anamlb_1/game_events.xml"
 ```
 
 ---

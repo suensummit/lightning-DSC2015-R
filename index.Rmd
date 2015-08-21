@@ -74,7 +74,7 @@ getGameIds(date=as.Date("2015-08-20"))
 ## 工欲善其事，必先利其器
 
 ```{r}
-gd = gameday(gameId="gid_2015_08_20_wasmlb_colmlb_1")
+gd = gameday(gameId="gid_2015_08_20_chamlb_anamlb_1")
 gd$url
 ```
 
