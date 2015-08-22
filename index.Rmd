@@ -66,7 +66,7 @@ head(filter(Pitching, playerID == "wangch01"))
 # require(devtools)
 # install_github("openWAR", "beanumber")
 require(openWAR)
-getGameIds(date=as.Date("2015-08-20"))
+getGameIds(date=as.Date("2015-08-22"))
 ```
 
 ---
@@ -74,7 +74,7 @@ getGameIds(date=as.Date("2015-08-20"))
 ## 工欲善其事，必先利其器
 
 ```{r}
-gd = gameday(gameId="gid_2015_08_20_chamlb_anamlb_1")
+gd = gameday(gameId="gid_2015_08_22_clemlb_nyamlb_1")
 gd$url
 ```
 
@@ -100,9 +100,13 @@ str(gd$ds)
 
 ## 工欲善其事，必先利其器
 
-```{r, fig.width=16, fig.height=6}
-
-ggplot(data = gd$ds, aes(x = our.x, y = our.y, color = isHit)) + geom_point(size = 4) + coord_fixed()
+```{r, fig.width=16, fig.height=6, warning=FALSE}
+hit <- data.frame(x = cbind(c(gd$ds$x, gd$ds$our.x)), y = cbind(c(gd$ds$y, gd$ds$our.y)), isHit = gd$ds$isHit)
+# img <- jpeg::readJPEG("assets/img/670px-Set-up-a-Baseball-Diamond-Step-1.jpg")
+# g <- rasterGrob(img, interpolate=TRUE)
+ggplot(data = hit, aes(x = x, y = y, color = isHit)) + coord_fixed() + 
+#   annotation_custom(g, xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf) + 
+  geom_point(size = 6, alpha = 0.4) + geom_density2d(colour = "black", size = 1, alpha = 0.5)
 ```
 
 ---

@@ -5,3 +5,5 @@ openWAR
 ggplot2
 Lahman
 dplyr
+hexbin
+png
